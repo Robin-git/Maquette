@@ -40,65 +40,123 @@
     </nav>
   </header>
 
-  <div class="container">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-      </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
 
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-
-        <div class="item active">
-          <img src="assets/img/StarWars.jpg" alt="Chania">
-          <div class="carousel-caption">
-            <h3>Le nouveau Star Wars en avant première !</h3>
-            <p>Réservé vite vos billet sur <a href="#">bnp billetrie</a>.</p>
-          </div>
+      <div class="item active">
+        <img src="assets/img/StarWars.jpg" alt="Chania">
+        <div class="carousel-caption">
+          <h3>Le nouveau Star Wars en avant première !</h3>
+          <p>Réservé vite vos billet sur <a href="#">bnp billetrie</a>.</p>
         </div>
-
-        <div class="item">
-          <img src="assets/img/20b.jpg" alt="Chania">
-          <div class="carousel-caption">
-            <h3>Un voyage en Ouzbékistan</h3>
-            <p>Des places sont encore disponibles sur <a href="#">bnp billetrie</a>.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="assets/img/325.jpg" alt="Flower">
-          <div class="carousel-caption">
-            <h3>Flowers</h3>
-            <p>Beatiful flowers in Kolymbari, Crete.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="assets/img/StarWars.jpg" alt="Flower">
-          <div class="carousel-caption">
-            <h3>Flowers</h3>
-            <p>Beatiful flowers in Kolymbari, Crete.</p>
-          </div>
-        </div>
-
       </div>
 
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      <div class="item">
+        <img src="assets/img/20b.jpg" alt="Chania">
+        <div class="carousel-caption">
+          <h3>Un voyage en Ouzbékistan</h3>
+          <p>Des places sont encore disponibles sur <a href="#">bnp billetrie</a>.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="assets/img/325.jpg" alt="Flower">
+        <div class="carousel-caption">
+          <h3>Flowers</h3>
+          <p>Beatiful flowers in Kolymbari, Crete.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="assets/img/StarWars.jpg" alt="Flower">
+        <div class="carousel-caption">
+          <h3>Flowers</h3>
+          <p>Beatiful flowers in Kolymbari, Crete.</p>
+        </div>
+      </div>
+
     </div>
 
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="assets/img/users-1.svg">
+          <div class="caption">
+            <h3>Bertrand Girard</h3>
+            <p>Ma période de stage touchant à sa fin, j'ai commencé à prospecter de façon intensive et à répondre à beaucoup
+              d'offres. Signe de la morosité du marché de l'emploi, il s’agissait principalement d’offres de stage. Malgré
+              cette première expérience significative et les lettres de recommandation de la Directrice d'IMS Alsace, je
+              recevais très peu de réponses, même négatives. Je me suis alors inscrite sur Talentsunivercite.com, un site
+              que j’ai connu grâce à mon stage. Des annonces étaient publiées régulièrement et, parmi elles, l’offre de formation
+              du Groupe BNP Paribas. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="assets/img/users-2.svg">
+          <div class="caption">
+            <h3>Davet Lajoie</h3>
+            <p>Ma période de stage touchant à sa fin, j'ai commencé à prospecter de façon intensive et à répondre à beaucoup
+              d'offres. Signe de la morosité du marché de l'emploi, il s’agissait principalement d’offres de stage. Malgré
+              cette première expérience significative et les lettres de recommandation de la Directrice d'IMS Alsace, je
+              recevais très peu de réponses, même négatives. Je me suis alors inscrite sur Talentsunivercite.com, un site
+              que j’ai connu grâce à mon stage. Des annonces étaient publiées régulièrement et, parmi elles, l’offre de formation
+              du Groupe BNP Paribas. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="assets/img/users-3.svg">
+          <div class="caption">
+            <h3>Leala Brousse</h3>
+            <p>Ma période de stage touchant à sa fin, j'ai commencé à prospecter de façon intensive et à répondre à beaucoup
+              d'offres. Signe de la morosité du marché de l'emploi, il s’agissait principalement d’offres de stage. Malgré
+              cette première expérience significative et les lettres de recommandation de la Directrice d'IMS Alsace, je
+              recevais très peu de réponses, même négatives. Je me suis alors inscrite sur Talentsunivercite.com, un site
+              que j’ai connu grâce à mon stage. Des annonces étaient publiées régulièrement et, parmi elles, l’offre de formation
+              du Groupe BNP Paribas. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row partnership">
+      <h2>Partenaires du CE<h2>
+      <hr>
+      <div class="col-sm-6 col-md-4">
+        <img class="center-block" src="assets/img/kadeos.png" height="50%" , width="50%">
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <img class="center-block" src="assets/img/fnac.png" height="50%" , width="50%">
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <img class="center-block" src="assets/img/gaumont.svg" height="50%" , width="50%">
+      </div>
+    </div>
   </div>
 
 
@@ -118,7 +176,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="assets/js/app.js"></script>
   </footer>
