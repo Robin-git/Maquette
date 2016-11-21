@@ -1,0 +1,20 @@
+{
+    "User": 
+    [
+        {
+            "id": 1,
+            "username": "MrRooboot",
+            "mdp": "pipa"
+        },
+        {
+            "id": 2,
+            "username": "JavaScroop",
+            "mdp": "pipa"
+        },
+        {
+            "id": 3,
+            "username": "Ruby",
+            "mdp": "ruby"
+        }
+    ]
+}
