@@ -30,6 +30,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="home.html">Acceuil</a></li>
                     <li><a href="#">Informations personnelles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
@@ -86,13 +87,37 @@
             <div id="menu0" class="tab-pane fade in active">
                 <h3>Informations utilisateur</h3>
                 <ul class="user-info">
-                    <li>Nom : </li>
-                    <li>Prénom : </li>
-                    <li>Adresse : </li>
-                    <li>Tél : </li>
-                    <li>Mail : </li>
-                    <li>Droits : </li>
+                    
                 </ul>
+                <form class="form-modif-user-info" hidden>
+                    <div class="form-group form-name-group">
+                        <label for="input-user-name">Nom :</label>
+                        <input type="text" class="form-control" id="input-user-name" placeholder="Nom" required >
+                    </div>
+                    <div class="form-group form-last-name-group">
+                        <label for="input-user-last-name">Prénom :</label>
+                        <input type="text" class="form-control" id="input-user-last-name" placeholder="Prénom" required >
+                    </div>
+                    <div class="form-group form-adress-group">
+                        <label for="input-user-adresse">Adresse :</label>
+                        <input type="text" class="form-control" id="input-user-adresse" placeholder="Adresse" required >
+                    </div>
+                    <div class="form-group form-tel-group">
+                        <label for="input-user-phone">Tél :</label>
+                        <input type="tel" class="form-control" id="input-user-phone" aria-describedby="telHelp" placeholder="Tél" required >
+                        <small id="telHelp" class="form-text text-muted">Exemple : 07.77.77.77.77</small>
+                    </div>
+                    <div class="form-group form-email-group">
+                        <label for="input-user-email">Email :</label>
+                        <input type="email" class="form-control" id="input-user-email" aria-describedby="emailHelp" placeholder="Email" required >
+                        <small id="emailHelp" class="form-text text-muted">Exemple : prenom.nom@gmail.com</small>
+                    </div>
+                    <div class="form-group form-droit-group">
+                        <label for="input-user-droits">Droits :</label>
+                        <input type="number" class="form-control" id="input-user-droits" placeholder="Droits" disabled>
+                    </div>
+                    <button type="submit" id="btn-submit-user-info" class="btn btn-primary">Valider</button>
+                </form>
                 <hr>
                 <button id="btn-modif-user-info" class="btn btn-info">Modifier les champs</button>
             </div>
@@ -155,6 +180,7 @@
             crossorigin="anonymous"></script>
 
         <script type="text/javascript" src="assets/js/user.js"></script>
+        <script type="text/javascript" src="assets/js/nav_tabs.js"></script>
     </footer>
 
 </body>
