@@ -67,6 +67,8 @@
                         </div>
                         <button id="user-submit-info" type="submit" class="btn btn-success btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-off"></span> Login</button>
                     </form>
+                    <div class="alert-submit-user-info">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <a class="btn btn-danger pull-left" href="home.html"><span class="glyphicon glyphicon-remove"></span> Cancel</a>
@@ -87,29 +89,29 @@
             <div id="menu0" class="tab-pane fade in active">
                 <h3>Informations utilisateur</h3>
                 <ul class="user-info">
-                    
+
                 </ul>
                 <form class="form-modif-user-info" hidden>
                     <div class="form-group form-name-group">
                         <label for="input-user-name">Nom :</label>
-                        <input type="text" class="form-control" id="input-user-name" placeholder="Nom" required >
+                        <input type="text" class="form-control" id="input-user-name" placeholder="Nom" required>
                     </div>
                     <div class="form-group form-last-name-group">
                         <label for="input-user-last-name">Prénom :</label>
-                        <input type="text" class="form-control" id="input-user-last-name" placeholder="Prénom" required >
+                        <input type="text" class="form-control" id="input-user-last-name" placeholder="Prénom" required>
                     </div>
                     <div class="form-group form-adress-group">
                         <label for="input-user-adresse">Adresse :</label>
-                        <input type="text" class="form-control" id="input-user-adresse" placeholder="Adresse" required >
+                        <input type="text" class="form-control" id="input-user-adresse" placeholder="Adresse" required>
                     </div>
                     <div class="form-group form-tel-group">
                         <label for="input-user-phone">Tél :</label>
-                        <input type="tel" class="form-control" id="input-user-phone" aria-describedby="telHelp" placeholder="Tél" required >
+                        <input type="tel" class="form-control" id="input-user-phone" aria-describedby="telHelp" placeholder="Tél" required>
                         <small id="telHelp" class="form-text text-muted">Exemple : 07.77.77.77.77</small>
                     </div>
                     <div class="form-group form-email-group">
                         <label for="input-user-email">Email :</label>
-                        <input type="email" class="form-control" id="input-user-email" aria-describedby="emailHelp" placeholder="Email" required >
+                        <input type="email" class="form-control" id="input-user-email" aria-describedby="emailHelp" placeholder="Email" required>
                         <small id="emailHelp" class="form-text text-muted">Exemple : prenom.nom@gmail.com</small>
                     </div>
                     <div class="form-group form-droit-group">
@@ -123,65 +125,194 @@
             </div>
             <div id="menu1" class="tab-pane fade">
                 <h3>Informations des ayant-droits</h3>
-                <p>Vous n'avez pas de ayant-droit.</p>
+                <div class="user-have-right">
+                    <h3>Liste des ayant-droits</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Date de naissance</th>
+                                <th>Liaison familiale</th>
+                                <th>Droits</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    
+                    <button type="button" class="btn btn-success confirm-add-colum">Valider</button>
+                    <hr>
+                    <button type="button" class="btn btn-primary add-colum-tab"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-danger remove-colum-tab"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                    
+                </div>
             </div>
             <div id="menu2" class="tab-pane fade">
                 <h3>Informations bancaires et les justificatifs</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-                    aperiam.
-                </p>
+                <hr>
+                <h3>Information du RIB</h3>
+                <div class="table-rib">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Code Banque</th>
+                                <th>Code guichet</th>
+                                <th>Numéro de compte</th>
+                                <th>Clé RIB</th>
+                                <th>Domicilation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>12345</td>
+                                <td>12345</td>
+                                <td>1234567891A</td>
+                                <td>12</td>
+                                <td>banque - ville - agence</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>IBAN</th>
+                                <td colspan="5">FRDD 1234 5123 4512 3456 7891 A12</td>
+                            </tr>
+                            <tr>
+                                <th>BIC</th>
+                                <td colspan="5">ABCDEFGH</td>
+                            </tr>
+                            <tr>
+                                <th>Titulaire</th>
+                                <td colspan="5">Ruby</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-modif-rib" hidden>
+                    <form>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Code Banque</th>
+                                    <th>Code guichet</th>
+                                    <th>Numéro de compte</th>
+                                    <th>Clé RIB</th>
+                                    <th>Domicilation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" value="12345" class="form-control"></td>
+                                    <td><input type="text" value="12345" class="form-control"></td>
+                                    <td><input type="text" value="1234567891A" class="form-control"></td>
+                                    <td><input type="text" value="12" class="form-control"></td>
+                                    <td><input type="text" value="banque - ville - agence" class="form-control"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-hover table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>IBAN</th>
+                                    <td colspan="5"><input type="text" value="FRDD 1234 5123 4512 3456 7891 A12" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <th>BIC</th>
+                                    <td colspan="5"><input type="text" value="ABCDEFGH" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <th>Titulaire</th>
+                                    <td colspan="5"><input type="text" value="Ruby" class="form-control"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="submit" class="btn btn-success">Modifier les info</button>
+                    </form>
+                </div>
+                <div>
+                    <button id="btn-modif-rib-information" class="btn btn-warning" disabled="false">Modifier les information du RIB</button>
+                    <hr>
+                    <h3>Fichiers</h3>
+                    <div class="acte-naissance">
+                        <div>
+                            <button class="btn btn-info">Donwload : Acte de naissance/Contrat de mariage. <i class="fa fa-download fa-x2" aria-hidden="true"></i></button>
+                        </div>
+                        <div class="progress download-act" hidden>
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:0%"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="passeports">
+                        <div>
+                            <button class="btn btn-info">Donwload : Passeports et cartes d'dentité. <i class="fa fa-download fa-x2" aria-hidden="true"></i></button>
+                        </div>
+                        <div class="progress download-act" hidden>
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:0%"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="factures">
+                        <div>
+                            <button class="btn btn-info">Donwload : Factures. <i class="fa fa-download fa-x2" aria-hidden="true"></i></button>
+                        </div>
+                        <div class="progress download-act" hidden>
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:0%"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
 
-    </div>
+        <footer class="footer">
 
-    <footer class="footer">
+            <div class="container">
 
-        <div class="container">
+                <div class="col-sm-4">
+                    <h4>Contact :</h4><br>
+                    <p><i class="fa fa-envelope" aria-hidden="true"></i> Mail : <a href="#">bnp-paribas@gmail.com</a></p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i> Tél : <a href="#">06.37.82.15.24</a></p>
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> Adresse : <a href="#">5 rue jean marcadé Paris</a></p>
+                    <p class="text-center"><a href="#" class="icon-circle"><i class="fa fa-address-book fa-5x icon-circle" aria-hidden="true"></i></a></p>
+                </div>
 
-            <div class="col-sm-4">
-                <h4>Contact :</h4><br>
-                <p><i class="fa fa-envelope" aria-hidden="true"></i> Mail : <a href="#">bnp-paribas@gmail.com</a></p>
-                <p><i class="fa fa-phone" aria-hidden="true"></i> Tél : <a href="#">06.37.82.15.24</a></p>
-                <p><i class="fa fa-map-marker" aria-hidden="true"></i> Adresse : <a href="#">5 rue jean marcadé Paris</a></p>
-                <p class="text-center"><a href="#" class="icon-circle"><i class="fa fa-address-book fa-5x icon-circle" aria-hidden="true"></i></a></p>
+                <div class="col-md-4 social-icons">
+                    <h4>Suivez notre actualité :</h4><br>
+                    <p><a href="#"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i> Facebook</a></p>
+                    <p><a href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i> Instagram</a></p>
+                    <p><a href="#"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i> Twitter</a></p>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>À propos de :</h4><br>
+                    <p>Integer quam ipsum, eleifend non suscipit in, suscipit eu eros. Pellentesque consectetur, dolor id tincidunt
+                        suscipit, dui dolor gravida ex, eget tempor eros quam non tortor. Sed elit nisi, condimentum et posuere
+                        eget, condimentum nec erat. Vestibulum ut ligula euismod, lobortis erat nec, cursus justo. Ut id
+                        malesuada sapien. Praesent malesuada lacinia erat a commodo. Pellentesque semper risus orci, at eleifend
+                        libero malesuada ut. Donec pellentesque maximus leo, vel vehicula massa fermentum non. Integer consequat
+                        sagittis sagittis. Cras ultricies sapien ac orci feugiat faucibus. In consectetur mauris semper accumsan
+                        lacinia. Nullam ut interdum libero, id posuere dui. </p>
+                </div>
+
+                <div class="footer-copyright blue-grey darken-4">
+                    © 2014 Copyright Text
+                    <a class="grey-text text-lighten-4" href="#!">More Links</a>
+                </div>
+
             </div>
 
-            <div class="col-md-4 social-icons">
-                <h4>Suivez notre actualité :</h4><br>
-                <p><a href="#"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i> Facebook</a></p>
-                <p><a href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i> Instagram</a></p>
-                <p><a href="#"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i> Twitter</a></p>
-            </div>
+            <!--Import jQuery before materialize.js-->
+            <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-            <div class="col-md-4">
-                <h4>À propos de :</h4><br>
-                <p>Integer quam ipsum, eleifend non suscipit in, suscipit eu eros. Pellentesque consectetur, dolor id tincidunt
-                    suscipit, dui dolor gravida ex, eget tempor eros quam non tortor. Sed elit nisi, condimentum et posuere
-                    eget, condimentum nec erat. Vestibulum ut ligula euismod, lobortis erat nec, cursus justo. Ut id malesuada
-                    sapien. Praesent malesuada lacinia erat a commodo. Pellentesque semper risus orci, at eleifend libero
-                    malesuada ut. Donec pellentesque maximus leo, vel vehicula massa fermentum non. Integer consequat sagittis
-                    sagittis. Cras ultricies sapien ac orci feugiat faucibus. In consectetur mauris semper accumsan lacinia.
-                    Nullam ut interdum libero, id posuere dui. </p>
-            </div>
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
 
-            <div class="footer-copyright blue-grey darken-4">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4" href="#!">More Links</a>
-            </div>
-
-        </div>
-
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-
-        <script type="text/javascript" src="assets/js/user.js"></script>
-        <script type="text/javascript" src="assets/js/nav_tabs.js"></script>
-    </footer>
+            <script type="text/javascript" src="assets/js/user.js"></script>
+            <script type="text/javascript" src="assets/js/nav_tabs.js"></script>
+        </footer>
 
 </body>
 
