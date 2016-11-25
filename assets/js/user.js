@@ -88,18 +88,22 @@ allUsers = [
     },
 ]
 
-$(document).ready(function () {
+$(document).ready(function() {
     /* Init button */
     $('#btn-modif-rib-information').prop("disabled", false);
     $('.acte-naissance').find('.btn.btn-info').prop("disabled", false);
     $('.passeports').find('.btn.btn-info').prop("disabled", false);
     $('.factures').find('.btn.btn-info').prop("disabled", false);
     $('.add-colum-tab').prop("disabled", false);
+    $('.remove-colum-tab').prop("disabled", false);
 
     /* Init du modal BootStrap */
-    $("#myModal").modal();
+    $('#myModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    });
 
-    $("#user-submit-info").click(function (event) {
+    $("#user-submit-info").click(function(event) {
         user = logUser($('#usrname').val(), $('#psw').val());
         if (user) {
             getUserParams(user);
@@ -107,17 +111,14 @@ $(document).ready(function () {
             printUserHaveRight(user);
         }
         else {
-            $('.alert-submit-user-info').empty();
-            $('.alert-submit-user-info').append('<div class="alert alert-danger">' +
-                '  Mot de passe ou nom d\'utilisateurs non trouvé...' +
-                '</div>');
+            alertUserNotFound();
             event.preventDefault();
             event.stopImmediatePropagation();
             return false;
         }
     });
 
-    $('.form-modif-user-info').submit(function (event) {
+    $('.form-modif-user-info').submit(function(event) {
         $('.user-info').empty();
         hiddenFormModifUserInfo();
         setUserParams(user);
@@ -125,11 +126,11 @@ $(document).ready(function () {
         event.preventDefault();
     });
 
-    $('#btn-modif-user-info').click(function () {
+    $('#btn-modif-user-info').click(function() {
         hiddenFormModifUserInfo();
     });
 
-    $('#btn-modif-rib-information').click(function () {
+    $('#btn-modif-rib-information').click(function() {
         $(this).prop("disabled", true);
         $('.table-rib').animate({
             height: 'toggle'
@@ -139,12 +140,12 @@ $(document).ready(function () {
         });
     });
 
-    $('.form-modif-rib').find('form').submit(function (event) {
+    $('.form-modif-rib').find('form').submit(function(event) {
         let td = $('.table-rib').find('td').toArray();
         let input = $('.form-modif-rib').find('input');
         let i;
         i = 0;
-        input.each(function () {
+        input.each(function() {
             td[i].innerHTML = $(this).val();
             i++;
         });
@@ -159,49 +160,35 @@ $(document).ready(function () {
     });
 
     /* FUNCTION TAB HAVE RIGHT */
-    var row;
-    row = '<tr>' +
-        '<td><input type="text" placeholder="Nom" class="form-control"></td>' +
-        '<td><input type="text" placeholder="Prénom" class="form-control"></td>' +
-        '<td><input type="text" placeholder="Date de naissance" class="form-control"></td>' +
-        '<td><input type="text" placeholder="Liaison familiale" class="form-control"></td>' +
-        '<td><input type="text" placeholder="Droits" class="form-control"></td>' +
-        '</tr>';
-
-    $('.add-colum-tab').click(function () {
-        $('.user-have-right > table > tbody').append(row);
+    $('.add-colum-tab').click(function() {
         $(this).prop("disabled", true);
         $('.remove-colum-tab').prop("disabled", true);
+        $('.form-add-colum-have-right').animate({
+            height: 'toggle'
+        });
     });
 
-    $('.remove-colum-tab').click(function () {
+    $('.remove-colum-tab').click(function() {
         $('.user-have-right > table > tbody > tr:last').remove();
     });
 
-    /* **************************************** */
-    $('.confirm-add-colum').click(function () {
-        let userRow;
-        let i;
-        let tbody;
-        let tab;
-        tbody = $('.user-have-right > table > tbody');
-        tab = tbody.find('input');
-        //$('.user-have-right > table > tbody').append(row);
-        i = 0;
-        tab.each(function () {
-            userRow[i] = $(this).val();
-            i++;
+    $('.form-add-colum-have-right').submit(function(event) {
+        let tab = $('.form-add-colum-have-right').find('input').toArray();
+        $('.table-have-right').append('<tr>');
+        let insert = $('.table-have-right > tr:last');
+        $.each(tab, function(i, val) {
+            insert.append('<td>' + val.value + '</td>');
         });
-        i = 0;
-        while (i != userRow.length) {
-            
-        }
+        $('.form-add-colum-have-right').animate({
+            height: 'toggle'
+        });
         $('.add-colum-tab').prop("disabled", false);
         $('.remove-colum-tab').prop("disabled", false);
+        event.preventDefault();
     });
 
     /* ANIMATION PROGRESS BAR acte-naissance */
-    $('.acte-naissance').find('.btn.btn-info').click(function () {
+    $('.acte-naissance').find('.btn.btn-info').click(function() {
         $(this).prop("disabled", true);
         $('.acte-naissance').find(".progress.download-act").animate({
             height: 'toggle'
@@ -209,8 +196,8 @@ $(document).ready(function () {
         $('.acte-naissance').find('.progress.download-act').find('.progress-bar')
             .animate({
                 width: "100%",
-            }, 3000, function () {
-                setTimeout(function () {
+            }, 3000, function() {
+                setTimeout(function() {
                     $('.acte-naissance').find('.progress.download-act').animate({
                         height: 'toggle'
                     });
@@ -221,7 +208,7 @@ $(document).ready(function () {
     });
 
     /* ANIMATION PROGRESS BAR passeports */
-    $('.passeports').find('.btn.btn-info').click(function () {
+    $('.passeports').find('.btn.btn-info').click(function() {
         $(this).prop("disabled", true);
         $('.passeports').find(".progress.download-act").animate({
             height: 'toggle'
@@ -229,8 +216,8 @@ $(document).ready(function () {
         $('.passeports').find('.progress.download-act').find('.progress-bar')
             .animate({
                 width: "100%",
-            }, 3000, function () {
-                setTimeout(function () {
+            }, 3000, function() {
+                setTimeout(function() {
                     $('.passeports').find('.progress.download-act').animate({
                         height: 'toggle'
                     });
@@ -241,7 +228,7 @@ $(document).ready(function () {
     });
 
     /* ANIMATION PROGRESS BAR factures */
-    $('.factures').find('.btn.btn-info').click(function () {
+    $('.factures').find('.btn.btn-info').click(function() {
         $(this).prop("disabled", true);
         $('.factures').find(".progress.download-act").animate({
             height: 'toggle'
@@ -249,8 +236,8 @@ $(document).ready(function () {
         $('.factures').find('.progress.download-act').find('.progress-bar')
             .animate({
                 width: "100%",
-            }, 3000, function () {
-                setTimeout(function () {
+            }, 3000, function() {
+                setTimeout(function() {
                     $('.factures').find('.progress.download-act').animate({
                         height: 'toggle'
                     });
@@ -261,7 +248,7 @@ $(document).ready(function () {
     });
 });
 
-getUserParams = function (user) {
+getUserParams = function(user) {
     input_name.val(user.nom);
     input_last_name.val(user.prénom);
     input_adress.val(user.adresse);
@@ -270,7 +257,7 @@ getUserParams = function (user) {
     input_droits.val(user.droits);
 };
 
-setUserParams = function (user) {
+setUserParams = function(user) {
     user.nom = input_name.val();
     user.prénom = input_last_name.val();
     user.adresse = input_adress.val();
@@ -279,7 +266,7 @@ setUserParams = function (user) {
     user.droits = input_droits.val();
 };
 
-printUserInfo = function (user) {
+printUserInfo = function(user) {
     $('.user-info').append('<li>Nom : ' + user.nom + ' </li>' +
         '<li>Prénom : ' + user.prénom + '</li>' +
         '<li>Adresse : ' + user.adresse + '</li>' +
@@ -288,10 +275,10 @@ printUserInfo = function (user) {
         '<li>Droits : ' + user.droits + '</li>');
 }
 
-printUserHaveRight = function (user) {
+printUserHaveRight = function(user) {
     let tr;
-    tr = $('.user-have-right').find('tbody');
-    $.each(user.familles, function (i, val) {
+    tr = $('.user-have-right').find('tbody.table-have-right');
+    $.each(user.familles, function(i, val) {
         tr.append('<tr>' +
             '<td> ' + val.nom + ' </td>' +
             '<td> ' + val.prénom + ' </td>' +
@@ -302,7 +289,14 @@ printUserHaveRight = function (user) {
     });
 }
 
-hiddenFormModifUserInfo = function () {
+alertUserNotFound = function() {
+    $('.alert-submit-user-info').empty();
+    $('.alert-submit-user-info').append('<div class="alert alert-danger">' +
+        '  Mot de passe ou nom d\'utilisateurs non trouvé...' +
+        '</div>');
+}
+
+hiddenFormModifUserInfo = function() {
     if ($('.user-info').prop('hidden')) {
         $('.user-info').prop('hidden', false);
         $('.form-modif-user-info').prop('hidden', true);
@@ -313,7 +307,7 @@ hiddenFormModifUserInfo = function () {
     }
 };
 
-input_name.keyup(function () {
+input_name.keyup(function() {
     if (name_reg.test(input_name.val())) {
         $('.form-name-group').addClass("has-success");
         $('.form-name-group').removeClass("has-error");
@@ -324,7 +318,7 @@ input_name.keyup(function () {
     }
 });
 
-input_email.keyup(function () {
+input_email.keyup(function() {
     if (email_reg.test(input_email.val())) {
         $('.form-email-group').removeClass("has-error");
     }
@@ -333,7 +327,7 @@ input_email.keyup(function () {
     }
 });
 
-logUser = function (name, password) {
+logUser = function(name, password) {
     let i;
     i = 0;
     while (i != allUsers.length) {
